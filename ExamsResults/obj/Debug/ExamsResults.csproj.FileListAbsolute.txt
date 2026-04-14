@@ -1,0 +1,17 @@
+C:\Users\andro\source\repos\ExamsResults\ExamsResults\bin\Debug\ExamsResults.exe.config
+C:\Users\andro\source\repos\ExamsResults\ExamsResults\bin\Debug\ExamsResults.exe
+C:\Users\andro\source\repos\ExamsResults\ExamsResults\bin\Debug\ExamsResults.pdb
+C:\Users\andro\source\repos\ExamsResults\ExamsResults\obj\Debug\ExamsResults.csproj.AssemblyReference.cache
+C:\Users\andro\source\repos\ExamsResults\ExamsResults\obj\Debug\MainWindow.g.cs
+C:\Users\andro\source\repos\ExamsResults\ExamsResults\obj\Debug\App.g.cs
+C:\Users\andro\source\repos\ExamsResults\ExamsResults\obj\Debug\ExamsResults_MarkupCompile.cache
+C:\Users\andro\source\repos\ExamsResults\ExamsResults\obj\Debug\ExamsResults_MarkupCompile.lref
+C:\Users\andro\source\repos\ExamsResults\ExamsResults\obj\Debug\MainWindow.baml
+C:\Users\andro\source\repos\ExamsResults\ExamsResults\obj\Debug\ExamsResults.g.resources
+C:\Users\andro\source\repos\ExamsResults\ExamsResults\obj\Debug\ExamsResults.Properties.Resources.resources
+C:\Users\andro\source\repos\ExamsResults\ExamsResults\obj\Debug\ExamsResults.csproj.GenerateResource.cache
+C:\Users\andro\source\repos\ExamsResults\ExamsResults\obj\Debug\ExamsResults.csproj.CoreCompileInputs.cache
+C:\Users\andro\source\repos\ExamsResults\ExamsResults\obj\Debug\ExamsResults.exe
+C:\Users\andro\source\repos\ExamsResults\ExamsResults\obj\Debug\ExamsResults.pdb
+C:\Users\andro\source\repos\ExamsResults\ExamsResults\obj\Debug\LoginWindow.g.cs
+C:\Users\andro\source\repos\ExamsResults\ExamsResults\obj\Debug\LoginWindow.baml
