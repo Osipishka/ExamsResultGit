@@ -7,6 +7,100 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="1000">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Панель поиска и фильтрации -->
+            <RowDefinition Height="Auto"/>
+            <!-- Навигация между таблицами -->
+            <RowDefinition Height="*"/>
+            <!-- ListView для вывода данных -->
+            <RowDefinition Height="Auto"/>
+            <!-- Панель переключения страниц -->
+            <RowDefinition Height="Auto"/>
+            <!-- Кнопка добавления -->
+        </Grid.RowDefinitions>
+
+        <!-- Строка 0: Поиск и фильтрация -->
+        <Border Grid.Row="0" Padding="10" Background="#F0F0F0">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Поиск:" VerticalAlignment="Center" Margin="0,0,10,0" FontWeight="Bold"/>
+                <TextBox x:Name="SearchBox" Width="200" Margin="0,0,10,0"/>
+                <TextBlock Text="Фильтрация:" VerticalAlignment="Center" Margin="0,0,10,0" FontWeight="Bold"/>
+                <ComboBox x:Name="FilterComboBox" Width="150" SelectedIndex="0">
+                    <ComboBoxItem Content="Все записи" IsSelected="True"/>
+                    <ComboBoxItem Content="Абитуриенты"/>
+                    <ComboBoxItem Content="Экзаменаторы"/>
+                    <ComboBoxItem Content="Предметы"/>
+                    <ComboBoxItem Content="Результаты"/>
+                </ComboBox>
+            </StackPanel>
+        </Border>
+
+        <!-- Строка 1: Навигация по таблицам -->
+       
+
+        <!-- Строка 2: ListView для вывода данных из БД -->
+        <Border Grid.Row="2" Padding="10">
+            <ListView x:Name="DataListView" 
+                      AlternationCount="2"
+                      ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                      ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <ListView.View>
+                    <GridView x:Name="GridViewTemplate">
+                        <!-- Колонки будут генерироваться динамически в code-behind -->
+                        <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding Id}"/>
+                        <GridViewColumn Header="ФИО / Название" Width="200" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="Дополнительная информация" Width="300" DisplayMemberBinding="{Binding Info}"/>
+                        <GridViewColumn Header="Дата" Width="100" DisplayMemberBinding="{Binding Date}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Border>
+
+        <!-- Строка 3: Панель переключения страниц -->
+        <Border Grid.Row="3" Padding="10" Background="#F9F9F9" BorderBrush="#CCCCCC" BorderThickness="0,1,0,1">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="FirstPageBtn" Content="&lt; &lt;" Width="50" Height="30" Margin="5"/>
+                <Button x:Name="PrevPageBtn" Content="&lt;" Width="50" Height="30" Margin="5"/>
+                <TextBlock x:Name="PageInfo" Text="Страница 1 из 1" VerticalAlignment="Center" Margin="15,0" FontSize="14" FontWeight="SemiBold"/>
+                <Button x:Name="NextPageBtn" Content="&gt;" Width="50" Height="30" Margin="5"/>
+                <Button x:Name="LastPageBtn" Content="&gt; &gt;" Width="50" Height="30" Margin="5"/>
+
+                <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" Margin="20,0,10,0"/>
+
+                <TextBlock Text="Показать:" VerticalAlignment="Center" Margin="10,0"/>
+                <ComboBox x:Name="PageSizeCombo" Width="60" Height="25" SelectedIndex="0">
+                    <ComboBoxItem Content="10" IsSelected="True"/>
+                    <ComboBoxItem Content="20"/>
+                    <ComboBoxItem Content="50"/>
+                    <ComboBoxItem Content="100"/>
+                </ComboBox>
+                <TextBlock Text="записей" VerticalAlignment="Center" Margin="5,0"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Строка 4: Кнопка добавления элементов -->
+        <Border Grid.Row="4" Padding="10">
+            <StackPanel HorizontalAlignment="Right">
+                <Button x:Name="AddButton" Content="➕ Добавить элемент" Width="150" Height="40" 
+                        Background="#4CAF50" Foreground="White" FontWeight="Bold" FontSize="14"
+                        BorderThickness="0" Cursor="Hand">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#4CAF50"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="5" Padding="10,5">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>

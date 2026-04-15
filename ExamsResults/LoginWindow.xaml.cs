@@ -26,11 +26,14 @@ namespace ExamsResults
         MainWindow _mainWindow = new MainWindow();
         private void LoginBTN_Click(object sender, RoutedEventArgs e)
         {
-            if(Pass.Text != null && Email.Text != null)
+            try
             {
-                _mainWindow.Show();
+                if (Pass.Text != null || Email.Text != null)
+                {
+                    _mainWindow.Show();
+                }
             }
-            else
+            catch
             {
                 MessageBox.Show("Введите почту или пароль", "Save error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
