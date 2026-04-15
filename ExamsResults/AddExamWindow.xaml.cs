@@ -10,25 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ExamsResults
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для AddExamWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AddExamWindow : Window
     {
-        public MainWindow()
+        public AddExamWindow()
         {
             InitializeComponent();
-        }
-        AddExamWindow _window = new AddExamWindow();
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            _window.Show();
         }
     }
 }

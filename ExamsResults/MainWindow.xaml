@@ -7,100 +7,131 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="1000">
     <Grid>
+        <Grid.Resources>
+            <Style TargetType="Button" x:Key="GreenRoundedButton">
+                <Setter Property="Background" Value="#4CAF50" />
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="BorderThickness" Value="0" />
+                <Setter Property="FontWeight" Value="SemiBold" />
+                <Setter Property="Padding" Value="24,0" />
+                <Setter Property="Height" Value="36" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}"
+                                CornerRadius="10"
+                                Padding="{TemplateBinding Padding}">
+                                <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <!-- Панель поиска и фильтрации -->
-            <RowDefinition Height="Auto"/>
-            <!-- Навигация между таблицами -->
-            <RowDefinition Height="*"/>
-            <!-- ListView для вывода данных -->
-            <RowDefinition Height="Auto"/>
-            <!-- Панель переключения страниц -->
-            <RowDefinition Height="Auto"/>
-            <!-- Кнопка добавления -->
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <!-- Строка 0: Поиск и фильтрация -->
-        <Border Grid.Row="0" Padding="10" Background="#F0F0F0">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Поиск:" VerticalAlignment="Center" Margin="0,0,10,0" FontWeight="Bold"/>
-                <TextBox x:Name="SearchBox" Width="200" Margin="0,0,10,0"/>
-                <TextBlock Text="Фильтрация:" VerticalAlignment="Center" Margin="0,0,10,0" FontWeight="Bold"/>
-                <ComboBox x:Name="FilterComboBox" Width="150" SelectedIndex="0">
-                    <ComboBoxItem Content="Все записи" IsSelected="True"/>
-                    <ComboBoxItem Content="Абитуриенты"/>
-                    <ComboBoxItem Content="Экзаменаторы"/>
-                    <ComboBoxItem Content="Предметы"/>
-                    <ComboBoxItem Content="Результаты"/>
-                </ComboBox>
+        <Grid Grid.Row="0" Margin="8,8,8,4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Поиск:" 
+               VerticalAlignment="Center" 
+               Margin="0,0,8,0" />
+
+            <TextBox Grid.Column="1"
+                 Margin="0,0,12,0"
+                 VerticalAlignment="Center"
+                 Height="28" />
+
+            <ComboBox Grid.Column="2"
+                  Width="160"
+                  Height="28"
+                  VerticalAlignment="Center"
+                  SelectedIndex="0">
+                <ComboBoxItem Content="Все записи" IsSelected="True"/>
+                <ComboBoxItem Content="Сдал"/>
+                <ComboBoxItem Content="Не сдал"/>
+            </ComboBox>
+        </Grid>
+
+        <DataGrid x:Name="dataGridExams"
+              Grid.Row="1"
+              Margin="8,0,8,4"
+              AutoGenerateColumns="False"
+              IsReadOnly="True"
+              GridLinesVisibility="All"
+              VerticalScrollBarVisibility="Auto"
+              HorizontalScrollBarVisibility="Auto"
+              CanUserResizeColumns="True"
+              CanUserSortColumns="True">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название предмета" 
+                                Width="*" 
+                                Binding="{Binding НазваниеПредмета}" />
+
+                <DataGridTextColumn Header="дата экзамена" 
+                                Width="120" 
+                                Binding="{Binding ДатаЭкзамена}" />
+
+                <DataGridTextColumn Header="Имя экзаменатора" 
+                                Width="*" 
+                                Binding="{Binding ИмяЭкзаменатора}" />
+
+                <DataGridTextColumn Header="Имя студента" 
+                                Width="*" 
+                                Binding="{Binding ИмяСтудента}" />
+
+                <DataGridTextColumn Header="Группа студента" 
+                                Width="140" 
+                                Binding="{Binding ГруппаСтудента}" />
+
+                <DataGridTextColumn Header="Результат: Сдал / Не сдал" 
+                                Width="180" 
+                                Binding="{Binding Результат}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Grid Grid.Row="2" Margin="8,4,8,8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Button Content="Добавить Элемент"
+                Grid.Column="0"
+                Style="{StaticResource GreenRoundedButton}" Click="Button_Click" />
+
+            <StackPanel Grid.Column="2"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center">
+
+                <Button Content="&lt;" 
+                    Width="36" 
+                    Height="36" 
+                    Margin="0,0,4,0" />
+
+                <TextBlock Text="1" 
+                       VerticalAlignment="Center" 
+                       Margin="12,0" 
+                       FontSize="16" />
+
+                <Button Content="&gt;" 
+                    Width="36" 
+                    Height="36" 
+                    Margin="4,0,0,0" />
+
             </StackPanel>
-        </Border>
-
-        <!-- Строка 1: Навигация по таблицам -->
-       
-
-        <!-- Строка 2: ListView для вывода данных из БД -->
-        <Border Grid.Row="2" Padding="10">
-            <ListView x:Name="DataListView" 
-                      AlternationCount="2"
-                      ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                      ScrollViewer.VerticalScrollBarVisibility="Auto">
-                <ListView.View>
-                    <GridView x:Name="GridViewTemplate">
-                        <!-- Колонки будут генерироваться динамически в code-behind -->
-                        <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding Id}"/>
-                        <GridViewColumn Header="ФИО / Название" Width="200" DisplayMemberBinding="{Binding Name}"/>
-                        <GridViewColumn Header="Дополнительная информация" Width="300" DisplayMemberBinding="{Binding Info}"/>
-                        <GridViewColumn Header="Дата" Width="100" DisplayMemberBinding="{Binding Date}"/>
-                    </GridView>
-                </ListView.View>
-            </ListView>
-        </Border>
-
-        <!-- Строка 3: Панель переключения страниц -->
-        <Border Grid.Row="3" Padding="10" Background="#F9F9F9" BorderBrush="#CCCCCC" BorderThickness="0,1,0,1">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button x:Name="FirstPageBtn" Content="&lt; &lt;" Width="50" Height="30" Margin="5"/>
-                <Button x:Name="PrevPageBtn" Content="&lt;" Width="50" Height="30" Margin="5"/>
-                <TextBlock x:Name="PageInfo" Text="Страница 1 из 1" VerticalAlignment="Center" Margin="15,0" FontSize="14" FontWeight="SemiBold"/>
-                <Button x:Name="NextPageBtn" Content="&gt;" Width="50" Height="30" Margin="5"/>
-                <Button x:Name="LastPageBtn" Content="&gt; &gt;" Width="50" Height="30" Margin="5"/>
-
-                <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" Margin="20,0,10,0"/>
-
-                <TextBlock Text="Показать:" VerticalAlignment="Center" Margin="10,0"/>
-                <ComboBox x:Name="PageSizeCombo" Width="60" Height="25" SelectedIndex="0">
-                    <ComboBoxItem Content="10" IsSelected="True"/>
-                    <ComboBoxItem Content="20"/>
-                    <ComboBoxItem Content="50"/>
-                    <ComboBoxItem Content="100"/>
-                </ComboBox>
-                <TextBlock Text="записей" VerticalAlignment="Center" Margin="5,0"/>
-            </StackPanel>
-        </Border>
-
-        <!-- Строка 4: Кнопка добавления элементов -->
-        <Border Grid.Row="4" Padding="10">
-            <StackPanel HorizontalAlignment="Right">
-                <Button x:Name="AddButton" Content="➕ Добавить элемент" Width="150" Height="40" 
-                        Background="#4CAF50" Foreground="White" FontWeight="Bold" FontSize="14"
-                        BorderThickness="0" Cursor="Hand">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="#4CAF50"/>
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="Button">
-                                        <Border Background="{TemplateBinding Background}" CornerRadius="5" Padding="10,5">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                        </Border>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </Button.Style>
-                </Button>
-            </StackPanel>
-        </Border>
+        </Grid>
     </Grid>
 </Window>
