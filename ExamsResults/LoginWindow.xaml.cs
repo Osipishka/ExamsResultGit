@@ -26,17 +26,15 @@ namespace ExamsResults
         MainWindow _mainWindow = new MainWindow();
         private void LoginBTN_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (!string.IsNullOrWhiteSpace(Email.Text) && !string.IsNullOrWhiteSpace(Pass.Text))
             {
-                if (Pass.Text != null || Email.Text != null)
-                {
-                    _mainWindow.Show();
-                }
+                _mainWindow.Show();
+                this.Close();
             }
-            catch
+            else
             {
                 MessageBox.Show("Введите почту или пароль", "Save error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            } 
         }
 
         private void Email_TextChanged(object sender, TextChangedEventArgs e)

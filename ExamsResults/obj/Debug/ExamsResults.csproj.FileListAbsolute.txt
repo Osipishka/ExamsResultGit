@@ -42,3 +42,10 @@ C:\Users\andro\source\repos\ExamsResults\ExamsResults\bin\Debug\EntityFramework.
 C:\Users\andro\source\repos\ExamsResults\ExamsResults\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\andro\source\repos\ExamsResults\ExamsResults\obj\Debug\ExamsResults_Content.g.cs
 C:\Users\andro\source\repos\ExamsResults\ExamsResults\obj\Debug\ExamsRes.2E91FFD0.Up2Date
+D:\Kursa4\ExamsResults\bin\Debug\EntityFramework.dll
+D:\Kursa4\ExamsResults\bin\Debug\EntityFramework.SqlServer.dll
+D:\Kursa4\ExamsResults\bin\Debug\EntityFramework.xml
+D:\Kursa4\ExamsResults\bin\Debug\EntityFramework.SqlServer.xml
+D:\Kursa4\ExamsResults\obj\Debug\ExamsResults.exe.config
+D:\Kursa4\ExamsResults\obj\Debug\ExamsResults_Content.g.cs
+D:\Kursa4\ExamsResults\obj\Debug\ExamsRes.2E91FFD0.Up2Date
