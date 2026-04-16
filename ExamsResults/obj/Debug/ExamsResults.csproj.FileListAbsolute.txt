@@ -34,3 +34,11 @@ D:\Kursa4\ExamsResults\obj\Debug\ExamsResults.exe
 D:\Kursa4\ExamsResults\obj\Debug\ExamsResults.pdb
 D:\Kursa4\ExamsResults\obj\Debug\AddExamWindow.g.cs
 D:\Kursa4\ExamsResults\obj\Debug\AddExamWindow.baml
+C:\Users\andro\source\repos\ExamsResults\ExamsResults\obj\Debug\AddExamWindow.g.cs
+C:\Users\andro\source\repos\ExamsResults\ExamsResults\obj\Debug\AddExamWindow.baml
+C:\Users\andro\source\repos\ExamsResults\ExamsResults\bin\Debug\EntityFramework.dll
+C:\Users\andro\source\repos\ExamsResults\ExamsResults\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\andro\source\repos\ExamsResults\ExamsResults\bin\Debug\EntityFramework.xml
+C:\Users\andro\source\repos\ExamsResults\ExamsResults\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\andro\source\repos\ExamsResults\ExamsResults\obj\Debug\ExamsResults_Content.g.cs
+C:\Users\andro\source\repos\ExamsResults\ExamsResults\obj\Debug\ExamsRes.2E91FFD0.Up2Date

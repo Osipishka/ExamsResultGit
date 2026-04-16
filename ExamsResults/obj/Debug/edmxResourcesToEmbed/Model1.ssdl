@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище ExamsResultsModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Accruals_And_Taxes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Exam_Result" Type="int" />
+    <Property Name="ID_Payment_Bets" Type="int" />
+    <Property Name="Accrued" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="NDFL" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Social_Tax" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="To_Be_Paid" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Date_Of_Calculation" Type="date" />
+  </EntityType>
+  <EntityType Name="Exam_Results">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Subject_ID" Type="int" />
+    <Property Name="Exam_date" Type="varchar" MaxLength="50" />
+    <Property Name="Student_ID" Type="int" />
+    <Property Name="Examiner_ID" Type="int" />
+    <Property Name="Exams_Result" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Examiners">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FIO" Type="varchar" MaxLength="50" />
+    <Property Name="Payment_examination" Type="decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="Groups">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Course" Type="int" />
+  </EntityType>
+  <EntityType Name="Payment_bets">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ID_Examiners" Type="int" Nullable="false" />
+    <Property Name="ID_Subject" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Students">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FIO" Type="varchar" MaxLength="50" />
+    <Property Name="Group" Type="int" />
+    <Property Name="Course" Type="int" />
+  </EntityType>
+  <EntityType Name="Subject">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_Accruals_And_Taxes_Exam_Results">
+    <End Role="Exam_Results" Type="Self.Exam_Results" Multiplicity="0..1" />
+    <End Role="Accruals_And_Taxes" Type="Self.Accruals_And_Taxes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Exam_Results">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Accruals_And_Taxes">
+        <PropertyRef Name="ID_Exam_Result" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Accruals_And_Taxes_Payment_bets">
+    <End Role="Payment_bets" Type="Self.Payment_bets" Multiplicity="0..1" />
+    <End Role="Accruals_And_Taxes" Type="Self.Accruals_And_Taxes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Payment_bets">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Accruals_And_Taxes">
+        <PropertyRef Name="ID_Payment_Bets" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Exam_Results_Examiners">
+    <End Role="Examiners" Type="Self.Examiners" Multiplicity="0..1" />
+    <End Role="Exam_Results" Type="Self.Exam_Results" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Examiners">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Exam_Results">
+        <PropertyRef Name="Examiner_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Exam_Results_Students">
+    <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
+    <End Role="Exam_Results" Type="Self.Exam_Results" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Exam_Results">
+        <PropertyRef Name="Student_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Exam_Results_Subject">
+    <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
+    <End Role="Exam_Results" Type="Self.Exam_Results" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Exam_Results">
+        <PropertyRef Name="Subject_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Groups_Students">
+    <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
+    <End Role="Groups" Type="Self.Groups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Groups">
+        <PropertyRef Name="Course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payment_bets_Examiners">
+    <End Role="Examiners" Type="Self.Examiners" Multiplicity="1" />
+    <End Role="Payment_bets" Type="Self.Payment_bets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Examiners">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Payment_bets">
+        <PropertyRef Name="ID_Examiners" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payment_bets_Subject">
+    <End Role="Subject" Type="Self.Subject" Multiplicity="1" />
+    <End Role="Payment_bets" Type="Self.Payment_bets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Payment_bets">
+        <PropertyRef Name="ID_Subject" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Students_Groups">
+    <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+    <End Role="Students" Type="Self.Students" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Students">
+        <PropertyRef Name="Group" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище ExamsResultsModelContainer">
+    <EntitySet Name="Accruals_And_Taxes" EntityType="Self.Accruals_And_Taxes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Exam_Results" EntityType="Self.Exam_Results" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Examiners" EntityType="Self.Examiners" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payment_bets" EntityType="Self.Payment_bets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Accruals_And_Taxes_Exam_Results" Association="Self.FK_Accruals_And_Taxes_Exam_Results">
+      <End Role="Exam_Results" EntitySet="Exam_Results" />
+      <End Role="Accruals_And_Taxes" EntitySet="Accruals_And_Taxes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Accruals_And_Taxes_Payment_bets" Association="Self.FK_Accruals_And_Taxes_Payment_bets">
+      <End Role="Payment_bets" EntitySet="Payment_bets" />
+      <End Role="Accruals_And_Taxes" EntitySet="Accruals_And_Taxes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Exam_Results_Examiners" Association="Self.FK_Exam_Results_Examiners">
+      <End Role="Examiners" EntitySet="Examiners" />
+      <End Role="Exam_Results" EntitySet="Exam_Results" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Exam_Results_Students" Association="Self.FK_Exam_Results_Students">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="Exam_Results" EntitySet="Exam_Results" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Exam_Results_Subject" Association="Self.FK_Exam_Results_Subject">
+      <End Role="Subject" EntitySet="Subject" />
+      <End Role="Exam_Results" EntitySet="Exam_Results" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Groups_Students" Association="Self.FK_Groups_Students">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="Groups" EntitySet="Groups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payment_bets_Examiners" Association="Self.FK_Payment_bets_Examiners">
+      <End Role="Examiners" EntitySet="Examiners" />
+      <End Role="Payment_bets" EntitySet="Payment_bets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payment_bets_Subject" Association="Self.FK_Payment_bets_Subject">
+      <End Role="Subject" EntitySet="Subject" />
+      <End Role="Payment_bets" EntitySet="Payment_bets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Students_Groups" Association="Self.FK_Students_Groups">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="Students" EntitySet="Students" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
