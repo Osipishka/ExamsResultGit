@@ -30,8 +30,10 @@ namespace ExamsResults
         public virtual DbSet<Examiners> Examiners { get; set; }
         public virtual DbSet<Groups> Groups { get; set; }
         public virtual DbSet<Payment_bets> Payment_bets { get; set; }
+        public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<Students> Students { get; set; }
         public virtual DbSet<Subject> Subject { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
     }
 }

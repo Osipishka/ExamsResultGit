@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Kursa4\ExamsResults\obj\Debug\
+C:\Users\andro\source\repos\ExamsResults\ExamsResults\obj\Debug\
 ExamsResults
 none
 false
 DEBUG;TRACE
-D:\Kursa4\ExamsResults\App.xaml
+C:\Users\andro\source\repos\ExamsResults\ExamsResults\App.xaml
 3866847028
 2-1957146511
-19-2083087779
-181082543347
+20915805883
+18-148536161
 AddExamWindow.xaml;LoginWindow.xaml;MainWindow.xaml;
 
-True
+False
 

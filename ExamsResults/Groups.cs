@@ -17,6 +17,7 @@ namespace ExamsResults
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Groups()
         {
+            this.Students = new HashSet<Students>();
             this.Students1 = new HashSet<Students>();
         }
     
@@ -24,7 +25,8 @@ namespace ExamsResults
         public string Name { get; set; }
         public Nullable<int> Course { get; set; }
     
-        public virtual Students Students { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Students> Students { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Students> Students1 { get; set; }
     }

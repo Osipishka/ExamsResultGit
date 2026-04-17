@@ -20,11 +20,11 @@
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
             <StackPanel>
                 <TextBlock Name="EmailBlock" Text="Email" VerticalAlignment="Center" Margin="0 0 0 5"/>
-                <TextBox Name="Email" Text="" VerticalAlignment="Center"  Width="200" TextChanged="Email_TextChanged"/>
+                <TextBox Name="Email" VerticalAlignment="Center"  Width="200" TextChanged="Email_TextChanged"/>
             </StackPanel>
             <StackPanel>
                 <TextBlock Name="PassBlock" Text="Pass" VerticalAlignment="Center" Margin="0 10 0 5"/>
-                <TextBox Name="Pass" Text="" VerticalAlignment="Center" Width="200"/>
+                <PasswordBox Name="Pass" VerticalAlignment="Center" Width="200"/>
             </StackPanel>
             
         </StackPanel>
