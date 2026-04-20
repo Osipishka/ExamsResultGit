@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "D:\\Kursa4\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3C1CD04F-A880-4C19-A566-56427F6174BB}|ExamsResults\\ExamsResults.csproj|d:\\kursa4\\examsresults\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{3C1CD04F-A880-4C19-A566-56427F6174BB}|ExamsResults\\ExamsResults.csproj|D:\\Kursa4\\examsresults\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{3C1CD04F-A880-4C19-A566-56427F6174BB}|ExamsResults\\ExamsResults.csproj|solutionrelative:examsresults\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3C1CD04F-A880-4C19-A566-56427F6174BB}|ExamsResults\\ExamsResults.csproj|d:\\kursa4\\examsresults\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{3C1CD04F-A880-4C19-A566-56427F6174BB}|ExamsResults\\ExamsResults.csproj|solutionrelative:examsresults\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3C1CD04F-A880-4C19-A566-56427F6174BB}|ExamsResults\\ExamsResults.csproj|d:\\kursa4\\examsresults\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3C1CD04F-A880-4C19-A566-56427F6174BB}|ExamsResults\\ExamsResults.csproj|solutionrelative:examsresults\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C1CD04F-A880-4C19-A566-56427F6174BB}|ExamsResults\\ExamsResults.csproj|d:\\kursa4\\examsresults\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{3C1CD04F-A880-4C19-A566-56427F6174BB}|ExamsResults\\ExamsResults.csproj|solutionrelative:examsresults\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C1CD04F-A880-4C19-A566-56427F6174BB}|ExamsResults\\ExamsResults.csproj|D:\\Kursa4\\examsresults\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3C1CD04F-A880-4C19-A566-56427F6174BB}|ExamsResults\\ExamsResults.csproj|solutionrelative:examsresults\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C1CD04F-A880-4C19-A566-56427F6174BB}|ExamsResults\\ExamsResults.csproj|D:\\Kursa4\\examsresults\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C1CD04F-A880-4C19-A566-56427F6174BB}|ExamsResults\\ExamsResults.csproj|solutionrelative:examsresults\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,6 +50,31 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "App.config",
+              "DocumentMoniker": "D:\\Kursa4\\ExamsResults\\App.config",
+              "RelativeDocumentMoniker": "ExamsResults\\App.config",
+              "ToolTip": "D:\\Kursa4\\ExamsResults\\App.config",
+              "RelativeToolTip": "ExamsResults\\App.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAADUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2026-04-19T14:52:25.952Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\Kursa4\\ExamsResults\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "ExamsResults\\MainWindow.xaml.cs",
+              "ToolTip": "D:\\Kursa4\\ExamsResults\\MainWindow.xaml.cs",
+              "RelativeToolTip": "ExamsResults\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-18T11:12:10.575Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "D:\\Kursa4\\ExamsResults\\MainWindow.xaml",
@@ -54,27 +87,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "LoginWindow.xaml.cs",
-              "DocumentMoniker": "D:\\Kursa4\\ExamsResults\\LoginWindow.xaml.cs",
-              "RelativeDocumentMoniker": "ExamsResults\\LoginWindow.xaml.cs",
-              "ToolTip": "D:\\Kursa4\\ExamsResults\\LoginWindow.xaml.cs",
-              "RelativeToolTip": "ExamsResults\\LoginWindow.xaml.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAAB8AAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-16T21:20:16.039Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "LoginWindow.xaml",
               "DocumentMoniker": "D:\\Kursa4\\ExamsResults\\LoginWindow.xaml",
               "RelativeDocumentMoniker": "ExamsResults\\LoginWindow.xaml",
               "ToolTip": "D:\\Kursa4\\ExamsResults\\LoginWindow.xaml",
               "RelativeToolTip": "ExamsResults\\LoginWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-04-16T21:20:14.52Z",
+              "WhenOpened": "2026-04-16T21:20:14.52Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LoginWindow.xaml.cs",
+              "DocumentMoniker": "D:\\Kursa4\\ExamsResults\\LoginWindow.xaml.cs",
+              "RelativeDocumentMoniker": "ExamsResults\\LoginWindow.xaml.cs",
+              "ToolTip": "D:\\Kursa4\\ExamsResults\\LoginWindow.xaml.cs",
+              "RelativeToolTip": "ExamsResults\\LoginWindow.xaml.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAawCUAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T21:20:16.039Z",
               "EditorCaption": ""
             }
           ]
