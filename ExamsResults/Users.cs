@@ -12,22 +12,13 @@ namespace ExamsResults
     using System;
     using System.Collections.Generic;
     
-    public partial class Students
+    public partial class Users
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Students()
-        {
-            this.Exam_Results = new HashSet<Exam_Results>();
-        }
-    
         public int ID { get; set; }
-        public string FIO { get; set; }
-        public Nullable<int> Group { get; set; }
-        public Nullable<int> Course { get; set; }
+        public string Login { get; set; }
+        public Nullable<int> Pass { get; set; }
+        public Nullable<int> Role { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Exam_Results> Exam_Results { get; set; }
-        public virtual Groups Groups { get; set; }
-        public virtual Groups Groups1 { get; set; }
+        public virtual Roles Roles { get; set; }
     }
 }

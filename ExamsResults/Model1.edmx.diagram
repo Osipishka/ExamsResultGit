@@ -4,24 +4,27 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="cad78bd1cd26452fa1f8019c1f009317" Name="Diagram1">
-        <EntityTypeShape EntityType="ExamsResultsModel.Accruals_And_Taxes" Width="1.5" PointX="8.25" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ExamsResultsModel.Exam_Results" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ExamsResultsModel.Examiners" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ExamsResultsModel.Groups" Width="1.5" PointX="1.5" PointY="7.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ExamsResultsModel.Payment_bets" Width="1.5" PointX="6" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ExamsResultsModel.Students" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ExamsResultsModel.Subject" Width="1.5" PointX="0.75" PointY="10.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ExamsResultsModel.sysdiagrams" Width="1.5" PointX="3.75" PointY="7.875" IsExpanded="true" />
+      <Diagram DiagramId="9099e8ede5754a73a3da4d7b14c7a1f8" Name="Diagram1">
+        <EntityTypeShape EntityType="ExamsResultsModel.Accruals_And_Taxes" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExamsResultsModel.Exam_Results" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExamsResultsModel.Examiners" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExamsResultsModel.Groups" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExamsResultsModel.Payment_bets" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExamsResultsModel.Roles" Width="1.5" PointX="7.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExamsResultsModel.Students" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExamsResultsModel.Subject" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExamsResultsModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ExamsResultsModel.Users" Width="1.5" PointX="10" PointY="4.875" IsExpanded="true" />
         <AssociationConnector Association="ExamsResultsModel.FK_Accruals_And_Taxes_Exam_Results" ManuallyRouted="false" />
         <AssociationConnector Association="ExamsResultsModel.FK_Accruals_And_Taxes_Payment_bets" ManuallyRouted="false" />
         <AssociationConnector Association="ExamsResultsModel.FK_Exam_Results_Examiners" ManuallyRouted="false" />
         <AssociationConnector Association="ExamsResultsModel.FK_Exam_Results_Students" ManuallyRouted="false" />
         <AssociationConnector Association="ExamsResultsModel.FK_Exam_Results_Subject" ManuallyRouted="false" />
         <AssociationConnector Association="ExamsResultsModel.FK_Payment_bets_Examiners" ManuallyRouted="false" />
-        <AssociationConnector Association="ExamsResultsModel.FK_Groups_Students" ManuallyRouted="false" />
         <AssociationConnector Association="ExamsResultsModel.FK_Students_Groups" ManuallyRouted="false" />
+        <AssociationConnector Association="ExamsResultsModel.FK_Students_Groups1" ManuallyRouted="false" />
         <AssociationConnector Association="ExamsResultsModel.FK_Payment_bets_Subject" ManuallyRouted="false" />
+        <AssociationConnector Association="ExamsResultsModel.FK_Users_Roles" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

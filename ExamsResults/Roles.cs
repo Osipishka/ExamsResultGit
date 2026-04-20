@@ -12,22 +12,18 @@ namespace ExamsResults
     using System;
     using System.Collections.Generic;
     
-    public partial class Payment_bets
+    public partial class Roles
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Payment_bets()
+        public Roles()
         {
-            this.Accruals_And_Taxes = new HashSet<Accruals_And_Taxes>();
+            this.Users = new HashSet<Users>();
         }
     
         public int ID { get; set; }
-        public int ID_Examiners { get; set; }
-        public int ID_Subject { get; set; }
-        public Nullable<decimal> Payment_amount { get; set; }
+        public string Role { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Accruals_And_Taxes> Accruals_And_Taxes { get; set; }
-        public virtual Examiners Examiners { get; set; }
-        public virtual Subject Subject { get; set; }
+        public virtual ICollection<Users> Users { get; set; }
     }
 }

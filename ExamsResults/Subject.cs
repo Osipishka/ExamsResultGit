@@ -23,6 +23,7 @@ namespace ExamsResults
     
         public int ID { get; set; }
         public string Name { get; set; }
+        public Nullable<int> Min_Score { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Exam_Results> Exam_Results { get; set; }
