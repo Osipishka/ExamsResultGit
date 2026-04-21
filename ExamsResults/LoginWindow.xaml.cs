@@ -24,47 +24,27 @@ namespace ExamsResults
         {
             InitializeComponent();
         }
+
         MainWindow _mainWindow = new MainWindow();
 
         private void LoginBTN_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-               var userObj = Classes.AppConnect.context.Users.FirstOrDefault(x => x.Login == Email.Text
-                                                                         && x.Pass == Convert.ToUInt32(Pass.Password));
-                if (userObj == null)
-                {
-                    MessageBox.Show("Такого пользователя нет!", "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-                else
-                {
-                    switch(userObj.Role)
-                    {
-                        case 1:
-                            MessageBox.Show("Здравствуйте администратор!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                            _mainWindow.Show();
-                            break;
-                        case 2:
-                            MessageBox.Show("Здравствуйте пользователь", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                            _mainWindow.Show();
-                            break;
-                        default:
-                            MessageBox.Show("Здравствуйте администратор!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                            break;
-                    }
-                }
+           if(Email.Text == "admin@mail.ru" && Pass.Password == "123")
+           {
+                MessageBox.Show("Добро пожаловать, администратор!");
+                _mainWindow.Show();
+                this.Close();
+           }
+           else if(Email.Text == "user@mail.ru" && Pass.Password == "321")
+           {
+                MessageBox.Show("Добро пожаловать, пользователь!");
+                _mainWindow.Show();
+                this.Close();
             }
-            catch
+            else
             {
-                MessageBox.Show("Неверная почта или пароль", "Save error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Пользователь не найден!");
             }
-            
-                
-        }
-
-        private void Email_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
     }
 }

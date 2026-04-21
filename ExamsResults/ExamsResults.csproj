@@ -71,6 +71,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Classes\AppConnect.cs" />
+    <Compile Include="Classes\ExamResultViewModel.cs" />
     <Compile Include="Examiners.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

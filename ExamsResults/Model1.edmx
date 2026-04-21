@@ -94,7 +94,7 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Login" Type="varchar" MaxLength="50" />
-          <Property Name="Pass" Type="int" />
+          <Property Name="Pass" Type="varchar" MaxLength="50" />
           <Property Name="Role" Type="int" />
         </EntityType>
         <Association Name="FK_Accruals_And_Taxes_Exam_Results">
@@ -382,7 +382,7 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Pass" Type="Int32" />
+          <Property Name="Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Role" Type="Int32" />
           <NavigationProperty Name="Roles" Relationship="Self.FK_Users_Roles" FromRole="Users" ToRole="Roles" />
         </EntityType>

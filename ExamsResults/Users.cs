@@ -16,7 +16,7 @@ namespace ExamsResults
     {
         public int ID { get; set; }
         public string Login { get; set; }
-        public Nullable<int> Pass { get; set; }
+        public string Pass { get; set; }
         public Nullable<int> Role { get; set; }
     
         public virtual Roles Roles { get; set; }

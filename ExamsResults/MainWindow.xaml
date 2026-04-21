@@ -7,131 +7,86 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="1000">
     <Grid>
-        <Grid.Resources>
-            <Style TargetType="Button" x:Key="GreenRoundedButton">
-                <Setter Property="Background" Value="#4CAF50" />
-                <Setter Property="Foreground" Value="White" />
-                <Setter Property="BorderThickness" Value="0" />
-                <Setter Property="FontWeight" Value="SemiBold" />
-                <Setter Property="Padding" Value="24,0" />
-                <Setter Property="Height" Value="36" />
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate TargetType="Button">
-                            <Border Background="{TemplateBinding Background}"
-                                CornerRadius="10"
-                                Padding="{TemplateBinding Padding}">
-                                <ContentPresenter HorizontalAlignment="Center"
-                                              VerticalAlignment="Center" />
-                            </Border>
-                        </ControlTemplate>
-                    </Setter.Value>
-                </Setter>
-            </Style>
-        </Grid.Resources>
-
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" Margin="8,8,8,4">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
+        <!-- ПОИСК И ФИЛЬТР -->
+        <StackPanel Grid.Row="0"
+                    Orientation="Horizontal"
+                    Margin="10">
 
-            <Label Content="Поиск:" 
-               VerticalAlignment="Center" 
-               Margin="0,0,8,0" />
+            <TextBox x:Name="SearchBox"
+                     Width="200"
+                     Height="28"
+                     Margin="0,0,10,0"
+                     TextChanged="SearchBox_TextChanged"/>
 
-            <TextBox Grid.Column="1"
-                 Margin="0,0,12,0"
-                 VerticalAlignment="Center"
-                 Height="28" />
-
-            <ComboBox Grid.Column="2"
-                  Width="160"
-                  Height="28"
-                  VerticalAlignment="Center"
-                  SelectedIndex="0">
-                <ComboBoxItem Content="Все записи" IsSelected="True"/>
-                <ComboBoxItem Content="Сдал"/>
-                <ComboBoxItem Content="Не сдал"/>
+            <ComboBox x:Name="GroupFilter"
+                      Width="150"
+                      Height="28"
+                      SelectionChanged="GroupFilter_SelectionChanged">
+                <ComboBoxItem Content="Все группы" IsSelected="True"/>
             </ComboBox>
-        </Grid>
 
+        </StackPanel>
+
+        <!-- ТАБЛИЦА -->
         <DataGrid x:Name="dataGridExams"
-              Grid.Row="1"
-              Margin="8,0,8,4"
-              AutoGenerateColumns="False"
-              IsReadOnly="True"
-              GridLinesVisibility="All"
-              VerticalScrollBarVisibility="Auto"
-              HorizontalScrollBarVisibility="Auto"
-              CanUserResizeColumns="True"
-              CanUserSortColumns="True">
+                  Grid.Row="1"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  Margin="10"
+                  RowHeight="40"
+                  FontSize="14">
+
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsPassed}" Value="True">
+                            <Setter Property="Background" Value="#C8E6C9"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding IsPassed}" Value="False">
+                            <Setter Property="Background" Value="#FFCDD2"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Название предмета" 
-                                Width="*" 
-                                Binding="{Binding НазваниеПредмета}" />
-
-                <DataGridTextColumn Header="дата экзамена" 
-                                Width="120" 
-                                Binding="{Binding ДатаЭкзамена}" />
-
-                <DataGridTextColumn Header="Имя экзаменатора" 
-                                Width="*" 
-                                Binding="{Binding ИмяЭкзаменатора}" />
-
-                <DataGridTextColumn Header="Имя студента" 
-                                Width="*" 
-                                Binding="{Binding ИмяСтудента}" />
-
-                <DataGridTextColumn Header="Группа студента" 
-                                Width="140" 
-                                Binding="{Binding ГруппаСтудента}" />
-
-                <DataGridTextColumn Header="Результат: Сдал / Не сдал" 
-                                Width="180" 
-                                Binding="{Binding Результат}" />
+                <DataGridTextColumn Header="Предмет" Binding="{Binding NameSubject}" Width="*"/>
+                <DataGridTextColumn Header="Дата" Binding="{Binding DateExam}" Width="120"/>
+                <DataGridTextColumn Header="Экзаменатор" Binding="{Binding NameExaminer}" Width="*"/>
+                <DataGridTextColumn Header="Студент" Binding="{Binding NameStudent}" Width="*"/>
+                <DataGridTextColumn Header="Группа" Binding="{Binding GroupStudent}" Width="120"/>
+                <DataGridTextColumn Header="Результат" Binding="{Binding Result}" Width="120"/>
             </DataGrid.Columns>
         </DataGrid>
 
-        <Grid Grid.Row="2" Margin="8,4,8,8">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
-
-            <Button Content="Добавить Элемент"
-                Grid.Column="0"
-                Style="{StaticResource GreenRoundedButton}" Click="Button_Click" />
-
-            <StackPanel Grid.Column="2"
+        <!-- ПАГИНАЦИЯ -->
+        <StackPanel Grid.Row="2"
                     Orientation="Horizontal"
-                    VerticalAlignment="Center">
+                    HorizontalAlignment="Center"
+                    Margin="10">
 
-                <Button Content="&lt;" 
-                    Width="36" 
-                    Height="36" 
-                    Margin="0,0,4,0" />
+            <Button Content="&lt;"
+                    Width="40"
+                    Margin="5"
+                    Click="PrevPage_Click"/>
 
-                <TextBlock Text="1" 
-                       VerticalAlignment="Center" 
-                       Margin="12,0" 
-                       FontSize="16" />
+            <TextBlock x:Name="PageText"
+                       Text="1"
+                       FontSize="16"
+                       VerticalAlignment="Center"
+                       Margin="10"/>
 
-                <Button Content="&gt;" 
-                    Width="36" 
-                    Height="36" 
-                    Margin="4,0,0,0" />
+            <Button Content="&gt;"
+                    Width="40"
+                    Margin="5"
+                    Click="NextPage_Click"/>
 
-            </StackPanel>
-        </Grid>
+        </StackPanel>
     </Grid>
 </Window>
