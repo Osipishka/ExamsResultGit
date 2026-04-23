@@ -26,9 +26,9 @@
                 <TextBlock Name="PassBlock" Text="Pass" VerticalAlignment="Center" Margin="0 10 0 5"/>
                 <PasswordBox Name="Pass" VerticalAlignment="Center" Width="200"/>
             </StackPanel>
-            
+
         </StackPanel>
-        
+
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2">
             <Button Name="LoginBTN" Width="100" Height="25" Click="LoginBTN_Click">
                 <TextBlock Text="Войти"/>

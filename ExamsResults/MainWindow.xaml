@@ -65,7 +65,7 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <!-- ПАГИНАЦИЯ -->
+
         <StackPanel Grid.Row="2"
                     Orientation="Horizontal"
                     HorizontalAlignment="Center"
@@ -86,6 +86,19 @@
                     Width="40"
                     Margin="5"
                     Click="NextPage_Click"/>
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="2"
+            Orientation="Horizontal"
+            HorizontalAlignment="Left"
+            Margin="10">
+
+            <Button Content="Добавить Экзамен"
+                    x:Name="AddExamButton"
+            Width="150"
+            Margin="5"
+            Click="AddExam_Click"/>
 
         </StackPanel>
     </Grid>

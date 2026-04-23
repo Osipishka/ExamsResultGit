@@ -1,8 +1,12 @@
-﻿using System;
+﻿
+using ExamsResults.Classes;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace ExamsResults
 {
@@ -13,6 +17,7 @@ namespace ExamsResults
 
         private int _currentPage = 1;
         private int _pageSize = 5;
+        private string _role;
 
         private Dictionary<int, string> Groups = new Dictionary<int, string>()
         {
@@ -42,9 +47,17 @@ namespace ExamsResults
             {10,("Романова А. Д.", 1550)}
         };
 
-        public MainWindow()
+        public MainWindow(string role = "user")
         {
             InitializeComponent();
+
+            _role = role;
+
+            // 👇 ВОТ ЭТО ГЛАВНОЕ
+            if (_role != "admin")
+            {
+                AddExamButton.Visibility = Visibility.Collapsed;
+            }
 
             LoadData();
 
@@ -132,7 +145,20 @@ namespace ExamsResults
                 LoadPage();
             }
         }
+
+        private void AddExam_Click(object sender, RoutedEventArgs e)
+        {
+            AddExamWindow window = new AddExamWindow(this);
+            window.ShowDialog();
+        }
+            
+        public void AddExam(ExamViewModel exam)
+        {
+            _allExams.Add(exam);
+            ApplyFilters(); // автоматически обновит таблицу
+        }
     }
+
 
     public class ExamViewModel
     {
