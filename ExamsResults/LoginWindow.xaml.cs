@@ -17,7 +17,6 @@ namespace ExamsResults
             {
                 MessageBox.Show("Добро пожаловать, администратор!");
 
-                // Передаем роль администратора
                 MainWindow mainWindow = new MainWindow("admin");
                 mainWindow.Show();
                 this.Close();
@@ -26,7 +25,6 @@ namespace ExamsResults
             {
                 MessageBox.Show("Добро пожаловать, пользователь!");
 
-                // Передаем роль пользователя
                 MainWindow mainWindow = new MainWindow("user");
                 mainWindow.Show();
                 this.Close();

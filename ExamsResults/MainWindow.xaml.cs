@@ -53,7 +53,6 @@ namespace ExamsResults
 
             _role = role;
 
-            // 👇 ВОТ ЭТО ГЛАВНОЕ
             if (_role != "admin")
             {
                 AddExamButton.Visibility = Visibility.Collapsed;
